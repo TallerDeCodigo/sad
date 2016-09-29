@@ -20,11 +20,14 @@ class DealersModel
 		else
 			$where = "";
 
-		$consulta = 'SELECT a.*, z.Zona  FROM sad_agencias a left join sad_zonas z on a.sad_zonaId =z.Id ' . $where .' ORDER BY a.Clave ASC ;';
+		$consulta = 'SELECT a.*, z.Zona  FROM sad_agencias a left join sad_zonas z on a.sad_zonaId =z.Id ' . $where .' ORDER BY a.Clave ASC;';
+   		
    		$sql->query($consulta);
+   		
    		foreach($sql->query($consulta) as $row) {
 	         $dealers[] = $row;
 	    }
+
 	 	return json_encode($dealers);
 
 	}

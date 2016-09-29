@@ -26,7 +26,7 @@ dealers.filter('startFrom', function() {
 
 
 dealers.controller('dealersCrtl', function ($scope, $http, $timeout) {
-    $http.get('http://nissansad.dev/index.php/dealers/').success(function(data){
+    $http.get('http://localhost/~programacion2/sad/index.php/dealers/').success(function(data){
         $scope.list = data;
         $scope.currentPage = 1; //current page
         $scope.entryLimit = 50; //max no of items to display in a page
@@ -67,7 +67,7 @@ unidadInmApp.filter('startFrom', function() {
 
 
 unidadInmApp.controller('unidadInmCtrl', function ($scope, $http, $timeout) {
-    $http.get('http://nissansad.dev/index.php/dealers/').success(function(data){
+    $http.get('http://localhost/~programacion2/sad/index.php/dealers/').success(function(data){
         $scope.list = data;
         $scope.currentPage = 1; //current page
         $scope.entryLimit = 10; //max no of items to display in a page
@@ -110,7 +110,7 @@ unidadInmApp.controller('unidadInmCtrl', function ($scope, $http, $timeout) {
 
 
     backorder.controller('backorderCrtl', function ($scope, $http, $timeout) {
-        $http.get('http://nissansad.dev/index.php/dealers/').success(function(data){
+        $http.get('http://localhost/~programacion2/sad/index.php/dealers/').success(function(data){
             $scope.list = data;
             $scope.currentPage = 1; //current page
             $scope.entryLimit = 30; //max no of items to display in a page
