@@ -15,11 +15,12 @@ class DealersModel
 	function get($id = null, $sql)
 	{
 
-		if($id != null)
+		if($id != null){
 			$where = "Id = " .$id;
-		else
+		}else{
 			$where = "";
-
+		}
+		
 		$consulta = 'SELECT a.*, z.Zona  FROM sad_agencias a left join sad_zonas z on a.sad_zonaId =z.Id ' . $where .' ORDER BY a.Clave ASC;';
    		
    		$sql->query($consulta);
