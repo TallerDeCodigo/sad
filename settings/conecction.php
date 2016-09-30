@@ -17,7 +17,8 @@ class MySQLNissan extends PDO
         $statement->setFetchMode(PDO::FETCH_ASSOC);
         return $statement;
     }
-	
+
+   
 }
 
 	

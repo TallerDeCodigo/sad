@@ -25,6 +25,8 @@
 
 	//Ruta de Agencias
 	require('./routes/sad_dealers/routes.dealers.php');
+
+	require('./routes/sad_automoviles/routes.automoviles.php');
    	
 	// API USERS
 
