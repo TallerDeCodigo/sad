@@ -26,7 +26,14 @@
 	//Ruta de Agencias
 	require('./routes/sad_dealers/routes.dealers.php');
 
+	//Ruta de automoviles
 	require('./routes/sad_automoviles/routes.automoviles.php');
+
+	//Ruta de bitacora
+	require('./routes/sad_bitacora/routes.bitacora.php');
+
+	//Ruta de cancelacionbo
+	require('./routes/sad_cancelacionbo/routes.cancelacionbo.php');
    	
 	// API USERS
 

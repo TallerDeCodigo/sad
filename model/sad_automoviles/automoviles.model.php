@@ -3,10 +3,12 @@
 		/*
 			GET
 		*/
+
 		function get($id=null, $sql){
 			$consulta = 'SELECT * FROM sad_modelos ORDER BY Descripcion';
 			$sql->query($consulta);
 			$i = 0;
+			
 			foreach($sql->query($consulta) as $row){
 
 				$row['No'] = ++$i;
@@ -40,6 +42,9 @@
 		}
 
 
+		/*
+			UPDATE
+		*/
 		function upd($datos, $sql){
 
 
