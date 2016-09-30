@@ -1,28 +1,19 @@
 <?php
-	
 	require_once('./model/sad_cancelacionbo/cancelacionbo.model.php');
-
 	/**
 	 * Get all cancelaciones bo
 	 **/
-
-
-	$app->get('/cancelacionbo/', function () use ($app, $sql) {
-		
+	$app->get('/cancelacionbo/', function () use ($app, $sql) {	
 		//Model
 		$model  = new Cancelacionbo();
-		$result = $model->get(null, $sql);
+		$result = $model->get($IdDealer,$Perfil, $IdUsuario,  $FechaIni, $FechaFin, $NoTicket, $sql); // <--parametros que recibe
 		return $result;
-
 	});
-
 	$app->get('/cancelacionbo/:id', function ($id) use ($app, $sql)  {		
-
 		echo $id;
 		 // $model  = new cancelacionboModel();
 		 // $result = $model->get($id, $sql);
 		 // return $result;
-
 	});
 
 	/**

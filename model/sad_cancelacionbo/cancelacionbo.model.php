@@ -5,54 +5,83 @@
 		*/
 
 		function get($IdDealer, $Perfil, $IdUsuario, $FechaIni = '', $FechaFin = '', $NoTicket = '',$sql){
-			
-			$consulta ="SELECT * FROM sad_backorder_zonas WHERE sad_usuarios_Id = " . $IdUsuario. ";";
-			$sql->query($consulta);
-			$i = 0;
-			
-			foreach($sql->query($consulta) as $row){
 
-				$row['No'] = ++$i;
-				if($row['Especial'] == 1)
-					$row['Especial'] = 'Si';
-				else
-					$row['Especial'] = 'No';
-				
-				$automiviles[] = $row;
+			if($IdDealer!=-1 || $IdDealer!=0 ){
+				$where = " AND tp.sadagencias_Id = ".$IdDealer;
 			}
-			return json_encode($automiviles);
+			if($IdDealer == -1){
+				$where = "";
+			}
+			if($Perfil == 3){
+				$where = "";
+				$consulta ="SELECT * FROM sad_backorder_zonas WHERE sad_usuarios_Id = " . $IdUsuario. ";";
+				while($sql->query($cons)){
+					$idAgencias.= $sql->sad_zona.", ";
+				}
+				$idAgencias.="0";
+				$where = "AND sa.sad_zonaId IN (".$idAgencias.")";
+			}
+			if($Perfil ==4){
+				$where = "AND sa.sad_zonaId IN (select sad_zonasId from sad_usuariosxzona where sad_usuariosId = ".$IdUsuario." )";
+			}
+			if($Perfil == 7){
+				$where = "AND tp.Control = 1";
+			}
+			$dias = 5;
+			if($Perfil == 2){
+				$dias=30;
+			}
+
+			if($FechaIni != '' && $FechaFin != ''){
+				if($escalo == "1"){
+					$where.= " AND (tp.Status !=3 OR (tp.Status =3 AND DATE_SUB( CURDATE( ) , INTERVAL ".$dias." DAY ) <= tp.FechaMod))";
+				}else{
+					$where.= " AND tp.NoTicket ='".$NoTicket."'";
+				}
+			}
+
+			if($Perfil==19)
+				$where.= " AND tp.analistaInventarios=".$IdUsuario;
+			if($Perfil==20)
+				$where.= " AND  tp.jr_manager=".$IdUsuario;
+			if($Perfil==5)
+				$where.= " AND  tp.sr_manajer=".$IdUsuario;
+			if($Perfil==6)
+				$where.= "  AND tp.director=".$IdUsuario;
+			if($Perfil==21)
+				$where.= " AND  tp.directorGeneral=".$IdUsuario;
+			
+			if($subp==19)
+				$where.= " AND tp.analistaInventarios>0";
+			if($subp==20)
+				$where.= " AND  tp.jr_manager>0";
+			if($subp==5)
+				$where.= " AND  tp.sr_manajer>0";
+			if($subp==6)
+				$where.= "  AND tp.director>0";
+			if($subp==21)
+				$where.= " AND   tp.directorGeneral>0";
+				
+			if($Perfil==9)
+				$where.= "AND tp.infoTec<>0";
+				
+			if($Perfil=="24"){
+				$dia = time()-(120*24*60*60); 
+				$fechamin= date('Y-m-d', $dia); 
+				$where.= " AND Fecha >='".$fechamin."' ";
+			}
+
+			$i=1;
+			$cons="SELECT tp.*, sa.Clave FROM sad_cancelacionbo AS tp LEFT JOIN sad_agencias as sa ON sa.Id = tp.sadagencias_Id where tp.Id<>0 $where ORDER BY Fecha DESC;";
+			
+			//return $cons;
+			$i = 1;
+
+			foreach($sql->query($cons) as $row){
+				$cancelacionbo[] = $row;
+			}
+			return json_encode($cancelacionbo);
 		}//END GET
-
-		
-		/*
-			INSERT
-		*/
-
-		function ins($json, $sql){
-
-			$consulta = "INSERT INTO sad_modelos(Clave, Descripcion, AnioDesde, AnioHasta, FechaMod, Especial)
-							 VALUES ('".$json->Clave."','".$json->Descripcion."','".$json->AnioDesde."','".$json->AnioHasta."',NOW(),'" . $json->Especial . "')";
-			
-			// $sql->prepare($consulta);
-
-			// $sql->execute();
-			
-			print($consulta);
-			
-			return "ok";
-		}
-
-
-		/*
-			UPDATE
-		*/
-		function upd($datos, $sql){
-
-
-		$consulta = "UPDATE sad_modelos SET Clave='".$datos->Clave."', Descripcion='".$datos->Descripcion."', AnioDesde='".$datos->AnioDesde.
-								"', AnioHasta='".$datos->AnioHasta."', FechaMod='NOW()', Especial ='"  . $datos->Especial . "' WHERE Id=".$datos->Id;
-								
-		}
 
 	}
 ?>
