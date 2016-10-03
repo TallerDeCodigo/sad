@@ -34,6 +34,15 @@
 
 	//Ruta de cancelacionbo
 	require('./routes/sad_cancelacionbo/routes.cancelacionbo.php');
+
+	//Ruta de cancelacionbo_partes
+	require('./routes/sad_cancelacionbo_partes/routes.cancelacionbo_partes.php');
+
+	//Ruta de cancelacionbo_resp
+	require('./routes/sad_cancelacionbo_resp/routes.cancelacionbo_resp.php');
+
+	//Ruta de control
+	require('./routes/sad_control/routes.control.php');
    	
 	// API USERS
 

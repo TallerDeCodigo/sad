@@ -12,7 +12,6 @@ class MySQLNissan extends PDO
 	}
 
 	function query($query){
-
         $statement = parent::query($query);
         $statement->setFetchMode(PDO::FETCH_ASSOC);
         return $statement;

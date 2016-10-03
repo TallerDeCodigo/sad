@@ -1,26 +1,27 @@
 <?php 
-	class Cancelacionbo{
+	class CancelacionboModel{
 		/*
 			GET
 		*/
 
-		function get($IdDealer, $Perfil, $IdUsuario, $FechaIni = '', $FechaFin = '', $NoTicket = '',$sql){
+		function get($IdDealer, $Perfil, $IdUsuario, $FechaIni = '', $FechaFin = '', $NoTicket = '', $sql){
 
-			if($IdDealer!=-1 || $IdDealer!=0 ){
-				$where = " AND tp.sadagencias_Id = ".$IdDealer;
-			}
-			if($IdDealer == -1){
-				$where = "";
-			}
+			// if($IdDealer!=-1 || $IdDealer!=0 ){
+			// 	$where = " AND tp.sadagencias_Id = ".$IdDealer;
+			// }
+			// if($IdDealer == -1){
+			// 	$where = "";
+			// }
 			if($Perfil == 3){
 				$where = "";
-				$consulta ="SELECT * FROM sad_backorder_zonas WHERE sad_usuarios_Id = " . $IdUsuario. ";";
-				while($sql->query($cons)){
+				$consulta ="SELECT * FROM sad_backorder_zonas WHERE sad_usuarios_Id = " . $IdUsuario. ";"; 
+				while($sql->query($consulta)){
 					$idAgencias.= $sql->sad_zona.", ";
 				}
+
 				$idAgencias.="0";
 				$where = "AND sa.sad_zonaId IN (".$idAgencias.")";
-			}
+			 }
 			if($Perfil ==4){
 				$where = "AND sa.sad_zonaId IN (select sad_zonasId from sad_usuariosxzona where sad_usuariosId = ".$IdUsuario." )";
 			}
@@ -71,11 +72,7 @@
 				$where.= " AND Fecha >='".$fechamin."' ";
 			}
 
-			$i=1;
-			$cons="SELECT tp.*, sa.Clave FROM sad_cancelacionbo AS tp LEFT JOIN sad_agencias as sa ON sa.Id = tp.sadagencias_Id where tp.Id<>0 $where ORDER BY Fecha DESC;";
-			
-			//return $cons;
-			$i = 1;
+			$cons="SELECT tp.*, sa.Clave FROM sad_cancelacionbo AS tp LEFT JOIN sad_agencias as sa ON sa.Id = tp.sadagencias_Id where tp.Id<>0 $where ORDER BY Fecha DESC LIMIT 100;";
 
 			foreach($sql->query($cons) as $row){
 				$cancelacionbo[] = $row;

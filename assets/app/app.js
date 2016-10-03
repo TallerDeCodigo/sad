@@ -174,6 +174,130 @@ cancelacionbo.controller('cancelacionboCrtl', function ($scope, $http, $timeout)
 });
 
 
+// ----------------- Cancelacion bo partes----------------------
+
+var cancelacionbo_partes = angular.module('appCancelacionbo_partes', ['ui.bootstrap']);
+
+cancelacionbo_partes.filter('startFrom', function() {
+    return function(input, start) {
+        if(input) {
+            start = +start; //parse to int
+            return input.slice(start);
+        }
+        return [];
+    }
+  });
+
+
+cancelacionbo_partes.controller('cancelacionbo_partesCrtl', function ($scope, $http, $timeout) {
+    $http.get('http://localhost/~programacion2/sad/index.php/cancelacionbo_partes/').success(function(data){
+        $scope.list = data;
+        $scope.currentPage = 1; //current page
+        $scope.entryLimit = 50; //max no of items to display in a page
+        $scope.filteredItems = $scope.list.length; //Initially for no filter  
+        $scope.totalItems = $scope.list.length;
+
+    });
+   
+    $scope.setPage = function(pageNo) {
+        $scope.currentPage = pageNo;
+    };
+    $scope.filter = function() {
+        $timeout(function() { 
+            $scope.filteredItems = $scope.filtered.length;
+        }, 10);
+    };
+    $scope.sort_by = function(predicate) {
+        $scope.predicate = predicate;
+        $scope.reverse = !$scope.reverse;
+    };
+
+});
+
+
+// ----------------- Cancelacion bo resp----------------------
+
+var cancelacionbo_resp = angular.module('appCancelacionbo_resp', ['ui.bootstrap']);
+
+cancelacionbo_resp.filter('startFrom', function() {
+    return function(input, start) {
+        if(input) {
+            start = +start; //parse to int
+            return input.slice(start);
+        }
+        return [];
+    }
+  });
+
+
+cancelacionbo_resp.controller('cancelacionbo_respCrtl', function ($scope, $http, $timeout) {
+    $http.get('http://localhost/~programacion2/sad/index.php/cancelacionbo_resp/').success(function(data){
+        $scope.list = data;
+        $scope.currentPage = 1; //current page
+        $scope.entryLimit = 50; //max no of items to display in a page
+        $scope.filteredItems = $scope.list.length; //Initially for no filter  
+        $scope.totalItems = $scope.list.length;
+
+    });
+   
+    $scope.setPage = function(pageNo) {
+        $scope.currentPage = pageNo;
+    };
+    $scope.filter = function() {
+        $timeout(function() { 
+            $scope.filteredItems = $scope.filtered.length;
+        }, 10);
+    };
+    $scope.sort_by = function(predicate) {
+        $scope.predicate = predicate;
+        $scope.reverse = !$scope.reverse;
+    };
+
+});
+
+
+// -----------------Control----------------------
+
+var control = angular.module('appControl', ['ui.bootstrap']);
+
+control.filter('startFrom', function() {
+    return function(input, start) {
+        if(input) {
+            start = +start; //parse to int
+            return input.slice(start);
+        }
+        return [];
+    }
+  });
+
+
+control.controller('controlCrtl', function ($scope, $http, $timeout) {
+    $http.get('http://localhost/~programacion2/sad/index.php/control/').success(function(data){
+        $scope.list = data;
+        $scope.currentPage = 1; //current page
+        $scope.entryLimit = 50; //max no of items to display in a page
+        $scope.filteredItems = $scope.list.length; //Initially for no filter  
+        $scope.totalItems = $scope.list.length;
+
+    });
+   
+    $scope.setPage = function(pageNo) {
+        $scope.currentPage = pageNo;
+    };
+    $scope.filter = function() {
+        $timeout(function() { 
+            $scope.filteredItems = $scope.filtered.length;
+        }, 10);
+    };
+    $scope.sort_by = function(predicate) {
+        $scope.predicate = predicate;
+        $scope.reverse = !$scope.reverse;
+    };
+
+});
+
+
+
 // ----------------- VOR ----------------------
 
 var unidadInmApp = angular.module('appUnidadInm', ['ui.bootstrap']);

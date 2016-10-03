@@ -3,16 +3,16 @@
 		/*
 			GET
 		*/
-		function get($NoTicket){
-			$sql = new MySQLNissan();
-			$consulta = "SELECT * FROM sad_cancelacionbo_partes WHERE NoTicket = '" . $NoTicket . "';"
+		function get($NoTicket, $sql){
 
+			$consulta = "SELECT * FROM sad_cancelacionbo_partes WHERE NoTicket = '" . $NoTicket . "';";
 			$sql->query($consulta);
-
-			foreach($sql->query($consulta)){
-				$cancelacionesbo_partes[] = $row;
+ 
+			foreach($sql->query($consulta) as $row) {
+				$cancelacionbo_partes[] = $row;
 			}
-			return json_encode($cancelacionesbo_partes);
+
+			return json_encode($cancelacionbo_partes);
 		}
-	}//END GET
+	}
 ?>
