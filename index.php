@@ -43,7 +43,44 @@
 
 	//Ruta de control
 	require('./routes/sad_control/routes.control.php');
+
+	//Ruta de estadisticas
+	//require('./routes/sad_estadisticas/routes.estadisticas.php');
+
+	//Ruta de graficas
+	//require('./routes/sad_graficas/routes.graficas.php');
+
+	//Ruta de informacion tecnica
+	require('./routes/sad_infotech/routes.infotech.php');
    	
+   	//Ruta de modelos
+   	//require('./routes/sad_modelos/routes.modelos.php');
+
+   	//Ruta de perfiles
+   	//require('./routes/sad_perfiles/routes.perfiles.php');
+
+	//Ruta de tktBackorder
+	require('./routes/sad_tktbackorder/routes.tktbackorder.php');
+
+	//Ruta de hrr
+	require('./routes/sad_tkthrr/routes.tkthrr.php');
+
+	//Ruta de tktInfotech
+	require('./routes/sad_tktinfotech/routes.tktinfotech.php');
+
+	//Ruta de tktotros
+	require('./routes/sad_tktotros/routes.tktotros.php');
+
+	//Ruta de tktprecios
+	require('./routes/sad_tktprecios/routes_tktprecios.php');
+
+	//Ruta de tktsegpedido
+	require('./routes/sad_tktsegpedido/routes.tktsegpedido.php');
+
+
+
+
+
 	// API USERS
 
 	$app->get('/', function (){

@@ -298,6 +298,473 @@ control.controller('controlCrtl', function ($scope, $http, $timeout) {
 
 
 
+
+// -----------------Estadisticas----------------------
+
+var estadisticas = angular.module('appEstadisticas', ['ui.bootstrap']);
+
+estadisticas.filter('startFrom', function() {
+    return function(input, start) {
+        if(input) {
+            start = +start; //parse to int
+            return input.slice(start);
+        }
+        return [];
+    }
+  });
+
+
+estadisticas.controller('estadisticasCrtl', function ($scope, $http, $timeout) {
+    $http.get('http://localhost/~programacion2/sad/index.php/estadisticas/').success(function(data){
+        $scope.list = data;
+        $scope.currentPage = 1; //current page
+        $scope.entryLimit = 50; //max no of items to display in a page
+        $scope.filteredItems = $scope.list.length; //Initially for no filter  
+        $scope.totalItems = $scope.list.length;
+
+    });
+   
+    $scope.setPage = function(pageNo) {
+        $scope.currentPage = pageNo;
+    };
+    $scope.filter = function() {
+        $timeout(function() { 
+            $scope.filteredItems = $scope.filtered.length;
+        }, 10);
+    };
+    $scope.sort_by = function(predicate) {
+        $scope.predicate = predicate;
+        $scope.reverse = !$scope.reverse;
+    };
+
+});
+
+
+
+// -----------------Graficas----------------------
+
+var graficas = angular.module('appGraficas', ['ui.bootstrap']);
+
+graficas.filter('startFrom', function() {
+    return function(input, start) {
+        if(input) {
+            start = +start; //parse to int
+            return input.slice(start);
+        }
+        return [];
+    }
+  });
+
+
+graficas.controller('graficasCrtl', function ($scope, $http, $timeout) {
+    $http.get('http://localhost/~programacion2/sad/index.php/graficas/').success(function(data){
+        $scope.list = data;
+        $scope.currentPage = 1; //current page
+        $scope.entryLimit = 50; //max no of items to display in a page
+        $scope.filteredItems = $scope.list.length; //Initially for no filter  
+        $scope.totalItems = $scope.list.length;
+
+    });
+   
+    $scope.setPage = function(pageNo) {
+        $scope.currentPage = pageNo;
+    };
+    $scope.filter = function() {
+        $timeout(function() { 
+            $scope.filteredItems = $scope.filtered.length;
+        }, 10);
+    };
+    $scope.sort_by = function(predicate) {
+        $scope.predicate = predicate;
+        $scope.reverse = !$scope.reverse;
+    };
+
+});
+
+
+
+
+// -----------------Infotech----------------------
+
+var infotech = angular.module('appInfotech', ['ui.bootstrap']);
+
+infotech.filter('startFrom', function() {
+    return function(input, start) {
+        if(input) {
+            start = +start; //parse to int
+            return input.slice(start);
+        }
+        return [];
+    }
+  });
+
+
+infotech.controller('infotechCrtl', function ($scope, $http, $timeout) {
+    $http.get('http://localhost/~programacion2/sad/index.php/infotech/').success(function(data){
+        $scope.list = data;
+        $scope.currentPage = 1; //current page
+        $scope.entryLimit = 50; //max no of items to display in a page
+        $scope.filteredItems = $scope.list.length; //Initially for no filter  
+        $scope.totalItems = $scope.list.length;
+
+    });
+   
+    $scope.setPage = function(pageNo) {
+        $scope.currentPage = pageNo;
+    };
+    $scope.filter = function() {
+        $timeout(function() { 
+            $scope.filteredItems = $scope.filtered.length;
+        }, 10);
+    };
+    $scope.sort_by = function(predicate) {
+        $scope.predicate = predicate;
+        $scope.reverse = !$scope.reverse;
+    };
+
+});
+
+
+
+// -----------------Modelos----------------------
+
+var modelos = angular.module('appModelos', ['ui.bootstrap']);
+
+modelos.filter('startFrom', function() {
+    return function(input, start) {
+        if(input) {
+            start = +start; //parse to int
+            return input.slice(start);
+        }
+        return [];
+    }
+  });
+
+
+modelos.controller('modelosCrtl', function ($scope, $http, $timeout) {
+    $http.get('http://localhost/~programacion2/sad/index.php/modelos/').success(function(data){
+        $scope.list = data;
+        $scope.currentPage = 1; //current page
+        $scope.entryLimit = 50; //max no of items to display in a page
+        $scope.filteredItems = $scope.list.length; //Initially for no filter  
+        $scope.totalItems = $scope.list.length;
+
+    });
+   
+    $scope.setPage = function(pageNo) {
+        $scope.currentPage = pageNo;
+    };
+    $scope.filter = function() {
+        $timeout(function() { 
+            $scope.filteredItems = $scope.filtered.length;
+        }, 10);
+    };
+    $scope.sort_by = function(predicate) {
+        $scope.predicate = predicate;
+        $scope.reverse = !$scope.reverse;
+    };
+
+});
+
+// -----------------Perfiles----------------------
+
+var perfiles = angular.module('appPerfiles', ['ui.bootstrap']);
+
+perfiles.filter('startFrom', function() {
+    return function(input, start) {
+        if(input) {
+            start = +start; //parse to int
+            return input.slice(start);
+        }
+        return [];
+    }
+  });
+
+
+perfiles.controller('perfilesCrtl', function ($scope, $http, $timeout) {
+    $http.get('http://localhost/~programacion2/sad/index.php/perfiles/').success(function(data){
+        $scope.list = data;
+        $scope.currentPage = 1; //current page
+        $scope.entryLimit = 50; //max no of items to display in a page
+        $scope.filteredItems = $scope.list.length; //Initially for no filter  
+        $scope.totalItems = $scope.list.length;
+
+    });
+   
+    $scope.setPage = function(pageNo) {
+        $scope.currentPage = pageNo;
+    };
+    $scope.filter = function() {
+        $timeout(function() { 
+            $scope.filteredItems = $scope.filtered.length;
+        }, 10);
+    };
+    $scope.sort_by = function(predicate) {
+        $scope.predicate = predicate;
+        $scope.reverse = !$scope.reverse;
+    };
+
+});
+
+
+
+// -----------------tkt Backorder----------------------
+
+var tktBackorder = angular.module('appTktBackorder', ['ui.bootstrap']);
+
+tktBackorder.filter('startFrom', function() {
+    return function(input, start) {
+        if(input) {
+            start = +start; //parse to int
+            return input.slice(start);
+        }
+        return [];
+    }
+  });
+
+
+tktBackorder.controller('tktBackorderCrtl', function ($scope, $http, $timeout) {
+    $http.get('http://localhost/~programacion2/sad/index.php/tktBackorder/').success(function(data){
+        $scope.list = data;
+        $scope.currentPage = 1; //current page
+        $scope.entryLimit = 50; //max no of items to display in a page
+        $scope.filteredItems = $scope.list.length; //Initially for no filter  
+        $scope.totalItems = $scope.list.length;
+
+    });
+   
+    $scope.setPage = function(pageNo) {
+        $scope.currentPage = pageNo;
+    };
+    $scope.filter = function() {
+        $timeout(function() { 
+            $scope.filteredItems = $scope.filtered.length;
+        }, 10);
+    };
+    $scope.sort_by = function(predicate) {
+        $scope.predicate = predicate;
+        $scope.reverse = !$scope.reverse;
+    };
+
+});
+
+
+
+
+
+// -----------------tkt hrr----------------------
+
+var tkthrr = angular.module('appTkthrr', ['ui.bootstrap']);
+
+tkthrr.filter('startFrom', function() {
+    return function(input, start) {
+        if(input) {
+            start = +start; //parse to int
+            return input.slice(start);
+        }
+        return [];
+    }
+  });
+
+
+tkthrr.controller('tkthrrCrtl', function ($scope, $http, $timeout) {
+    $http.get('http://localhost/~programacion2/sad/index.php/tkthrr/').success(function(data){
+        $scope.list = data;
+        $scope.currentPage = 1; //current page
+        $scope.entryLimit = 50; //max no of items to display in a page
+        $scope.filteredItems = $scope.list.length; //Initially for no filter  
+        $scope.totalItems = $scope.list.length;
+
+    });
+   
+    $scope.setPage = function(pageNo) {
+        $scope.currentPage = pageNo;
+    };
+    $scope.filter = function() {
+        $timeout(function() { 
+            $scope.filteredItems = $scope.filtered.length;
+        }, 10);
+    };
+    $scope.sort_by = function(predicate) {
+        $scope.predicate = predicate;
+        $scope.reverse = !$scope.reverse;
+    };
+
+});
+
+
+
+// -----------------tkt infotech----------------------
+
+var tktinfotech = angular.module('appTktinfotech', ['ui.bootstrap']);
+
+tktinfotech.filter('startFrom', function() {
+    return function(input, start) {
+        if(input) {
+            start = +start; //parse to int
+            return input.slice(start);
+        }
+        return [];
+    }
+  });
+
+
+tktinfotech.controller('tktinfotechCrtl', function ($scope, $http, $timeout) {
+    $http.get('http://localhost/~programacion2/sad/index.php/tktinfotech/').success(function(data){
+        $scope.list = data;
+        $scope.currentPage = 1; //current page
+        $scope.entryLimit = 50; //max no of items to display in a page
+        $scope.filteredItems = $scope.list.length; //Initially for no filter  
+        $scope.totalItems = $scope.list.length;
+
+    });
+   
+    $scope.setPage = function(pageNo) {
+        $scope.currentPage = pageNo;
+    };
+    $scope.filter = function() {
+        $timeout(function() { 
+            $scope.filteredItems = $scope.filtered.length;
+        }, 10);
+    };
+    $scope.sort_by = function(predicate) {
+        $scope.predicate = predicate;
+        $scope.reverse = !$scope.reverse;
+    };
+
+});
+
+
+
+
+// -----------------tkt otros----------------------
+
+var tktotros = angular.module('appTktotros', ['ui.bootstrap']);
+
+tktotros.filter('startFrom', function() {
+    return function(input, start) {
+        if(input) {
+            start = +start; //parse to int
+            return input.slice(start);
+        }
+        return [];
+    }
+  });
+
+
+tktotros.controller('tktotrosCrtl', function ($scope, $http, $timeout) {
+    $http.get('http://localhost/~programacion2/sad/index.php/otros/').success(function(data){
+        $scope.list = data;
+        $scope.currentPage = 1; //current page
+        $scope.entryLimit = 50; //max no of items to display in a page
+        $scope.filteredItems = $scope.list.length; //Initially for no filter  
+        $scope.totalItems = $scope.list.length;
+
+    });
+   
+    $scope.setPage = function(pageNo) {
+        $scope.currentPage = pageNo;
+    };
+    $scope.filter = function() {
+        $timeout(function() { 
+            $scope.filteredItems = $scope.filtered.length;
+        }, 10);
+    };
+    $scope.sort_by = function(predicate) {
+        $scope.predicate = predicate;
+        $scope.reverse = !$scope.reverse;
+    };
+
+});
+
+
+
+// -----------------tkt Seg Pedido----------------------
+
+var tktsegPedido = angular.module('appTktsegPedido', ['ui.bootstrap']);
+
+tktsegPedido.filter('startFrom', function() {
+    return function(input, start) {
+        if(input) {
+            start = +start; //parse to int
+            return input.slice(start);
+        }
+        return [];
+    }
+  });
+
+
+tktsegPedido.controller('tktsegPedidoCrtl', function ($scope, $http, $timeout) {
+    $http.get('http://localhost/~programacion2/sad/index.php/segpedido/').success(function(data){
+        $scope.list = data;
+        $scope.currentPage = 1; //current page
+        $scope.entryLimit = 50; //max no of items to display in a page
+        $scope.filteredItems = $scope.list.length; //Initially for no filter  
+        $scope.totalItems = $scope.list.length;
+
+    });
+   
+    $scope.setPage = function(pageNo) {
+        $scope.currentPage = pageNo;
+    };
+    $scope.filter = function() {
+        $timeout(function() { 
+            $scope.filteredItems = $scope.filtered.length;
+        }, 10);
+    };
+    $scope.sort_by = function(predicate) {
+        $scope.predicate = predicate;
+        $scope.reverse = !$scope.reverse;
+    };
+
+});
+
+
+
+
+// -----------------tkt Precios----------------------
+
+var tktprecios = angular.module('appTktprecios', ['ui.bootstrap']);
+
+tktprecios.filter('startFrom', function() {
+    return function(input, start) {
+        if(input) {
+            start = +start; //parse to int
+            return input.slice(start);
+        }
+        return [];
+    }
+  });
+
+
+tktprecios.controller('tktpreciosCrtl', function ($scope, $http, $timeout) {
+    $http.get('http://localhost/~programacion2/sad/index.php/precios/').success(function(data){
+        $scope.list = data;
+        $scope.currentPage = 1; //current page
+        $scope.entryLimit = 50; //max no of items to display in a page
+        $scope.filteredItems = $scope.list.length; //Initially for no filter  
+        $scope.totalItems = $scope.list.length;
+
+    });
+   
+    $scope.setPage = function(pageNo) {
+        $scope.currentPage = pageNo;
+    };
+    $scope.filter = function() {
+        $timeout(function() { 
+            $scope.filteredItems = $scope.filtered.length;
+        }, 10);
+    };
+    $scope.sort_by = function(predicate) {
+        $scope.predicate = predicate;
+        $scope.reverse = !$scope.reverse;
+    };
+
+});
+
+
+
+
 // ----------------- VOR ----------------------
 
 var unidadInmApp = angular.module('appUnidadInm', ['ui.bootstrap']);
