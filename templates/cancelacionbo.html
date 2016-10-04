@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" ng-app="appBitacora">
+<html lang="es" ng-app="appCancelacionbo">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -72,7 +72,7 @@
            
            
           </div>
-          <h2 class="sub-header">BITACORAS</h2>
+          <h2 class="sub-header">CANCELACION BO</h2>
           
           <div class="row placeholders">
             <a href="backorder-form.html" class="btn btn-default" aria-label="Left Align">
@@ -85,24 +85,52 @@
               <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
             </a>
           </div>  
-          <div class="table-responsive" ng-controller="bitacoraCrtl">
+          <div class="table-responsive" ng-controller="cancelacionboCrtl">
             <table class="table table-hover" ng-show="filteredItems > 0">
               <thead>
                 <tr>
                   <th>#</th>
                   <th style="display:none">Id</th>
-                  <th>Comentarios</th>
                   <th>Fecha</th>
-                  <th>No Ticket</th>
+                  <th>NoTicket</th>
+                  <th>Fecha1</th>
+                  <th>Fecha2</th>
+                  <th>Fecha3</th>
+                  <th>NoParte</th>
+                  <th>Cantidad</th>
+                  <th>Causa</th>
+                  <th>Comentarios</th>
+                  <th>RazonSocial</th>
+                  <th>FechaElaboracion</th>
+                  <th>GerenteRef</th>
+                  <th>sadusuarios_Id</th>
+                  <th>sadagencias_Id</th>
+                  <th>Status</th>
+                  <th>FechaMod</th>
                 </tr>
               </thead>
               <tbody>
                 <tr ng-repeat="data in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
                   <td>{{data.No}}</td>
                   <td style="display:none">{{data.Id}}</td>
-                  <td>{{data.Comentarios}}</td>
                   <td>{{data.Fecha}}</td>
-                  <td>{{data.NoTicket}}</td>       
+                  <td>{{data.NoTicket}}</td>
+                  <td>{{data.Fecha1}}</td>
+                  <td>{{data.Fecha2}}</td>
+                  <td>{{data.Fecha3}}</td>
+                  <td>{{data.NoParte}}</td>
+                  <td>{{data.NoPedido}}</td>
+                  <td>{{data.Cantidad}}</td>
+                  <td>{{data.Causa}}</td>
+                  <td>{{data.Comentarios}}</td>
+                  <td>{{data.RazonSocial}}</td>
+                  <td>{{data.FechaElaboracion}}</td>
+                  <td>{{data.GerenteRef}}</td>
+                  <td>{{data.sadusuarios_Id}}</td>
+                  <td>{{data.sadagencias_Id}}</td>
+                  <td>{{data.Status}}</td>
+                  <td>{{data.FechaMod}}</td>
+                  <td>{{data.Clave}}</td>
                 </tr>                
               </tbody>
             </table>
