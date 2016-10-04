@@ -80,6 +80,11 @@
 	//Ruta de tktunidadinm
 	require('./routes/sad_tktunidadinm/routes.tktunidadinm.php');
 
+	//Ruta de tktunidadinm_llaves
+	require('./routes/sad_tktunidadinm_llaves/routes.tktunidadinm_llaves.php');
+
+	//Ruta de usuarios
+	//require('./routes/sad_usuarios/routes.usuarios.php');
 
 
 

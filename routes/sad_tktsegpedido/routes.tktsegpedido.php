@@ -6,7 +6,6 @@
 	 * GET ALL DEALERS
 	 **/
 
-
 	$app->get('/segpedido/', function () use ($app, $sql) {
 		
 		//Model

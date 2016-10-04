@@ -1,5 +1,5 @@
 <?php
-	class Hrr{
+	class HrrModel{
 		/*
 			GET
 		*/

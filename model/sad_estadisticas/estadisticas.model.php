@@ -42,7 +42,7 @@
 				$os = $r8->nElemetos;
 			}
 			
-
+			
 			$sql->query($consulta7);
    		
    			foreach($sql->query($consulta) as $row) {

@@ -3,8 +3,8 @@
 
 	$app->get('/tkthrr/', function () use ($app, $sql) {
 		//Model
-		$model  = new Hrr();
-		$result = $model->get($IdDealer, $Perfil, $IdUsuario, $FechaIni = '', $FechaFin = '', $NoTicket = '', $sql);
+		$model  = new HrrModel();
+		$result = $model->get($IdDealer,$Perfil,$IdUsuario,$FechaIni = '',$FechaFin = '',$NoTicket = '',$sql);
 		return $result;
 
 		$app->get('/dealers/:id', function ($id) use ($app, $sql)  {		
