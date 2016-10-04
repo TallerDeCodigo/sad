@@ -54,7 +54,7 @@
 	require('./routes/sad_infotech/routes.infotech.php');
    	
    	//Ruta de modelos
-   	//require('./routes/sad_modelos/routes.modelos.php');
+   	require('./routes/sad_modelos/routes.modelos.php');
 
    	//Ruta de perfiles
    	//require('./routes/sad_perfiles/routes.perfiles.php');
@@ -76,6 +76,9 @@
 
 	//Ruta de tktsegpedido
 	require('./routes/sad_tktsegpedido/routes.tktsegpedido.php');
+
+	//Ruta de tktunidadinm
+	require('./routes/sad_tktunidadinm/routes.tktunidadinm.php');
 
 
 

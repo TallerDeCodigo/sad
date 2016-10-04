@@ -24,22 +24,5 @@
 		 // return $result;
 
 	});
-
-	/**
-	 * INSERT INTO DATABASE 
-	 **/
-
-	$app->post('/otros/', function($request, $response, $args) use ($app, $sql){
-		
-		$json = $request->getBody();
-
-    	$data = json_decode($json, true); 
-
-    	$model  = new DealersModel();
-
-    	$model->insert($data, $sql);
-
-    	return $model->insert($data);
-	});
 	
 

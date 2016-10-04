@@ -8,10 +8,10 @@
 			$sql->query($consulta);
    		
    			foreach($sql->query($consulta) as $row) {
-	        	$Precios[] = $row;
+	        	$precios[] = $row;
 	    	}
 
-	 		return json_encode($Precios);
+	 		return json_encode($precios);
 		}//end get function
 	}//end class
 ?>

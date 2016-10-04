@@ -1,10 +1,11 @@
 <?php
-	// class Perfiles{
-		
-	// 		GET
+	// class PerfilesModel{
+	// 		/*
+	// 			GET
+	// 		*/
 		
 	// 	function get(){
-				
+	// 			$consulta = "SELECT * FROM "
 	// 	}
 	// }
 ?>

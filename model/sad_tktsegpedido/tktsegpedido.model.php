@@ -1,14 +1,8 @@
 <?php
-/**
-* 
-*/
 class SegPedido{
 	/**
-	 * 
 	 * get:
-	 *
 	 **/
-
 	function get($IdDealer, $Perfil, $IdUsuario, $FechaIni = '', $FechaFin = '', $NoTicket = '', $sql){
 
 		if($id != null){

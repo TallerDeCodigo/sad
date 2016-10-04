@@ -524,7 +524,7 @@ tktBackorder.filter('startFrom', function() {
 
 
 tktBackorder.controller('tktBackorderCrtl', function ($scope, $http, $timeout) {
-    $http.get('http://localhost/~programacion2/sad/index.php/tktBackorder/').success(function(data){
+    $http.get('http://localhost/~programacion2/sad/index.php/backorder/').success(function(data){
         $scope.list = data;
         $scope.currentPage = 1; //current page
         $scope.entryLimit = 50; //max no of items to display in a page
@@ -653,7 +653,7 @@ tktotros.filter('startFrom', function() {
 
 
 tktotros.controller('tktotrosCrtl', function ($scope, $http, $timeout) {
-    $http.get('http://localhost/~programacion2/sad/index.php/otros/').success(function(data){
+    $http.get('http://localhost/~programacion2/sad/index.php/tktotros/').success(function(data){
         $scope.list = data;
         $scope.currentPage = 1; //current page
         $scope.entryLimit = 50; //max no of items to display in a page
@@ -761,6 +761,48 @@ tktprecios.controller('tktpreciosCrtl', function ($scope, $http, $timeout) {
     };
 
 });
+
+// -----------------tkt unidad inmovilizada----------------------
+
+var tktunidadinm = angular.module('appTktunidadinm', ['ui.bootstrap']);
+
+tktunidadinm.filter('startFrom', function() {
+    return function(input, start) {
+        if(input) {
+            start = +start; //parse to int
+            return input.slice(start);
+        }
+        return [];
+    }
+  });
+
+
+tktunidadinm.controller('tktunidadinmCrtl', function ($scope, $http, $timeout) {
+    $http.get('http://localhost/~programacion2/sad/index.php/unidadinm/').success(function(data){
+        $scope.list = data;
+        $scope.currentPage = 1; //current page
+        $scope.entryLimit = 50; //max no of items to display in a page
+        $scope.filteredItems = $scope.list.length; //Initially for no filter  
+        $scope.totalItems = $scope.list.length;
+
+    });
+   
+    $scope.setPage = function(pageNo) {
+        $scope.currentPage = pageNo;
+    };
+    $scope.filter = function() {
+        $timeout(function() { 
+            $scope.filteredItems = $scope.filtered.length;
+        }, 10);
+    };
+    $scope.sort_by = function(predicate) {
+        $scope.predicate = predicate;
+        $scope.reverse = !$scope.reverse;
+    };
+
+});
+
+
 
 
 

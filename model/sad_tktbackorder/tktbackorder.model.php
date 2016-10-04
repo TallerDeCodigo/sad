@@ -1,19 +1,20 @@
 <?php
-	class Tktbackorder{
+	class TktbackorderModel{
 		/*
 			GET
 		*/
 		function get($IdDealer, $Perfil, $IdUsuario, $FechaIni = '', $FechaFin = '', $NoTicket = '',$HOY, $TktPendientes=0, $TktOtrasAreas=0, $TktRevisados=0, $sql){
 				$idAgencias = "";
 				$where = " AND  tp.sad_agenciasId = " . $IdDealer;
+
 				if($IdDealer == -1||$Perfil==1){
 					$where = "";
 				}
 				if($Perfil == 3 || $Perfil == 4){
 					$where = "";
 
-					$sql->query($consulta);
 					$consulta = "SELECT * FROM sad_backorder_zonas WHERE sad_usuarios_Id = " . $IdUsuario. ";";
+					$sql->query($consulta);
 
 					foreach($sql->query($consulta) as $row) {
 	        			$tktBackorder[] = $row;
@@ -73,20 +74,16 @@
 				}
 
 				$i = 1;
-				$con="SELECT tp.*, sa.Clave FROM sad_tktbackorder AS tp 
-				LEFT JOIN sad_agencias as sa ON sa.Id = tp.sad_agenciasId 
-				LEFT JOIN sad_tktbackorder_resp as tpr ON tpr.NoTicket = tp.NoTicket  
-				where tp.Id<>0 $where GROUP BY tp.NoTicket ORDER BY Fecha DESC ;";
-					//return $con;
-				$sql->consulta($con);
+				$con = "SELECT tp.*, sa.Clave FROM sad_tktbackorder AS tp LEFT JOIN sad_agencias as sa ON sa.Id = tp.sad_agenciasId LEFT JOIN sad_tktbackorder_resp as tpr ON tpr.NoTicket = tp.NoTicket  where tp.Id<>0 $where GROUP BY tp.NoTicket ORDER BY Fecha DESC ;";
+				$sql->query($con);
 
 				foreach($sql->query($con) as $row){
 					$tktBackorder2[] = $row;
 
 					if($vo->Status == 3){
-						$vo->fCerrado		= $row->FechaMod;
+						$vo->fCerrado = $row->FechaMod;
 					}else{
-						$vo->fCerrado		= '';
+						$vo->fCerrado = '';
 					}
 
 					if($Perfil==2){
@@ -115,7 +112,7 @@
 							$vo->StatusDesc = $_mStatus;
 					}	
 
-					$rBackOrder = $sql->consulta("SELECT Min(FechaMod) as PRespuesta FROM sad_tktbackorder_resp WHERE NoTicket = '" . trim($row->NoTicket) ."' AND Perfil = 3;");
+					$rBackOrder = $sql->query("SELECT Min(FechaMod) as PRespuesta FROM sad_tktbackorder_resp WHERE NoTicket = '" . trim($row->NoTicket) ."' AND Perfil = 3;");
 					
 					if($r = mysql_fetch_object($rBackOrder)){
 						$vo->pRespuesta		= $r->PRespuesta;

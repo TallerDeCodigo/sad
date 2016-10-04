@@ -1,9 +1,9 @@
 <?php
-	class Modelos{
+	class ModelosModel{
 		/*
 			GET
 		*/
-		function get(){
+		function get($sql){
 			$consulta = "SELECT * FROM sad_modelos ORDER BY Clave DESC ;";
 
 			$sql->query($consulta);
