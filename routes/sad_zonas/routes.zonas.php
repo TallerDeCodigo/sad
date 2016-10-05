@@ -5,7 +5,7 @@
 	 **/
 	$app->get('/zonas/', function () use ($app, $sql) {	
 		//Model
-		$model  = new DealersModel();
+		$model  = new ZonasModel();
 		$result = $model->get($activo, $sql);
 		return $result;
 	});

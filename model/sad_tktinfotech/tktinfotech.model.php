@@ -13,5 +13,12 @@
 			return json_encode($tktinfotech);
 		}//end get function
 
+		/*POST*/
+		function ins($sql){
+			$consulta="INSERT INTO sad_tktinfotech(Fecha, NoTicket, EdMes, EdAnio, TipCatalogo, RazonConsulta, NoSerie, Modelo, Anio, CodColorExt, CodColorInt, CodParte, Seccion, NoParte, Descripcion, ColorParte, DesProblema, Fotografia,Fotografia2, Status, usuariosId, sad_agenciasId, Fechamod,txtNoPaRef) VALUES('" .$fReporte . "', '" . $datVO->NoTicket . "', '" . $datVO->EdMes . "','" . $datVO->EdAnio . "'," . $datVO->TipCatalogo. ",'" . $datVO->RazonConsulta. "','" . $datVO->NoSerie . "'," . $datVO->Modelo. "," . $datVO->Anio. ",'" . $datVO->CodColorExt . "','" . $datVO->CodColorInt . "',  '" . $datVO->CodParte . "','" . $datVO->Seccion . "','" . $datVO->NoParte . "','" . $datVO->Descripcion . "','" . $datVO->ColorParte . "','" . $datVO->DesProblema . "','" . $datVO->Fotografia . "','".$datVO->Fotografia2."','" . $datVO->Status. "','" . $datVO->usuariosId. "','" . $datVO->sad_agenciasId. "','" . date('Y-m-d H:i:s') . "','".$datVO->txtNoPaRef."');";
+			$sql->query($consulta);
+			return "ok";
+		}
+
 	}//end class 
 ?>
