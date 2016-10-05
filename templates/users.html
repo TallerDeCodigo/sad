@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="appTktinfotech">
+<html lang="es" ng-app="appUsers">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,13 +7,27 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Dashboard - Nissan SAD</title>
     <link rel="icon" href="../../favicon.ico">
+
+    <title>Dashboard - Nissan SAD</title>
+
     <!-- Bootstrap core CSS -->
     <link href="../assets/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Custom styles for this template -->
     <link href="dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
@@ -51,9 +65,6 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li><a href="users.html">Usuarios</a></li>
-            <li><a href="dealers.html">Agencias</a></li>
-            <li><a href="zonas.html">Zonas</a></li>
-            <li><a href="control.html">Control</a></li>
             <li><a href="unidadinmovilizada.html">Unidad Inmovilizada</a></li>
             <li><a href="#">Sistema de llaves</a></li>
             <li class="active"><a href="#">Información de partes en orden pendiente y seguimiento a pedido <span class="sr-only">(current)</span></a></li>
@@ -69,10 +80,10 @@
            
            
           </div>
-          <h2 class="sub-header">INFORMACIÓN DE PARTES EN ORDEN PENDIENTE BACKORDER Y SEGUIMIENTO A PEDIDO</h2>
+          <h2 class="sub-header">USUARIOS</h2>
           
           <div class="row placeholders">
-            <a href="backorder-form.html" class="btn btn-default" aria-label="Left Align">
+            <a href="users-form.html" class="btn btn-default" aria-label="Left Align">
               <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
             </a>
             <a  href="backorder-detail.html" class="btn btn-default" aria-label="Left Align">
@@ -82,59 +93,39 @@
               <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
             </a>
           </div>  
-          <div class="table-responsive" ng-controller="tktinfotechCrtl">
-            <table class="table table-bordered" ng-show="filteredItems > 0" >
+          <div class="table-responsive" ng-controller="usersCrtl">
+            <table class="table table-hover" ng-show="filteredItems > 0" >
               <thead>
                 <tr>
-                  <th>#</th> <!-- 1 -->
-                  <th>Clave de Agencia</th>
-                  <th>Fecha de Ticket</th>
-                  <th>No. Ticket</th>
-                  <th>Estatus</th>
-                  <th>Fecha #1 (Propuesta)</th>
-                  <th>Fecha #2 (Propuesta)</th>
-                  <th>Fecha #3 (Propuesta)</th>
-                  <th>No. de Serie de Vehículo (VIN)</th>
-                  <th>Catálogo</th>
-                  <th>Fecha Edición [MES-AÑO]</th>
-                  <th>Razón de Consulta</th>
-                  <th>Sección</th>
-                  <th>Código de parte</th>
-                  <th>No. Parte</th>
-                  <th>Descripción</th>
-                  <th>Color Parte</th>
-                  <th>Descripción de problema</th>
-                  <th>No. parte de etiqueta o grabado sobre la parte original</th>
-                  <th>Parte Original (PDF)</th>
-                  <th>Parte Recibida (PDF)</th>
-                  <th>Comentarios</th>
+                  <th>#</th>
+                  <th style="display:none">Id</th>
+                  <th>Compania</th>
+                  <th>Nombre</th>
+                  <th>ApePaterno</th>
+                  <th>ApeMaterno</th>
+                  <th>Mail</th>
+                  <th>Usuario</th>
+                  <th>Agencia</th>
+                  <th>Clave</th>
+                  <th>Perfil</th>
+                  <th>Activo</th>
                 </tr>
               </thead>
               <tbody>
                 <tr ng-repeat="data in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
-                  <td>{{data.Id}}</td>
-                  <td>{{data.Clave}}</td>
-                  <td>{{data.Fecha}}</td>
-                  <td>{{data.NoTicket}}</td>
-                  <td><span class="label {{data.Color}}">{{data.Status}}</span></td>
-                  <td>{{data.Fecha1}}</td>
-                  <td>{{data.Fecha2}}</td>
-                  <td>{{data.Fecha3}}</td>
-                  <td>{{data.NoSerie}}</td>
-                  <td>{{data.Catalogo}}</td>
-                  <td>{{data.Mes}}</td>
-                  <td>{{data.RazonConsulta}}</td>
-                  <td>{{data.Seccion}}</td>
-                  <td>{{data.Codigo}}</td>
-                  <td>{{data.NoParte}}</td>
-                  <td>{{data.Descripcion}}</td>
-                  <td>{{data.Color}}</td>
-                  <td>{{data.Problema}}</td>
-                  <td>{{data.Etiqueta}}</td>
-                  <td>{{data.ParteOriginal}}</td>
-                  <td>{{data.ParteRecibida}}</td>
-                  <td>{{data.Comentarios}}</td>
-                </tr>  
+                  <td>{{data.No}}</td>
+                  <td style="display:none">{{data.Id}}</td>
+                  <td>{{data.Compania}}</td>
+                  <td>{{data.Nombre}}</td>
+                  <td>{{data.ApePaterno}}</td>
+                  <td>{{data.ApeMaterno}}</td>
+                  <td>{{data.Mail}}</td>
+                  <td>{{data.Usuario}}</td>
+                  <td>{{data.Dealer}}</td>
+                  <td>clave</td>
+                  <td>{{data.Perfil}}</td>
+                  <td>{{data.Activo}}</td>
+                </tr>                
               </tbody>
             </table>
             <div class="col-md-12" ng-show="filteredItems == 0">

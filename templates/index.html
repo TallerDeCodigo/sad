@@ -7,27 +7,13 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-
     <title>Dashboard - Nissan SAD</title>
-
+    <link rel="icon" href="../../favicon.ico">
     <!-- Bootstrap core CSS -->
     <link href="../assets/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="dashboard.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
-    
-
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
@@ -35,7 +21,6 @@
   </head>
 
   <body>
-
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -64,25 +49,16 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-        
-            <li>
-              <a href="unidadinmovilizada.html">Unidad Inmovilizada</a>
-            </li>
-            <li>
-              <a href="#">Sistema de llaves</a>
-            </li>
-            <li class="active">
-              <a href="#">Información de partes en orden pendiente y seguimiento a pedido <span class="sr-only">(current)</span></a>
-            </li>
-            <li>
-              <a href="informaciontecnica.html">Información Técnica</a>
-            </li>
-            <li>
-              <a href="preciospartes-form.html">Consultra relacionada con precio de partes</a>
-            </li>
-            <li>
-              <a href="#">Otras solicitudes</a>
-            </li>
+            <li><a href="users.html">Usuarios</a></li>
+            <li><a href="dealers.html">Agencias</a></li>
+            <li><a href="zonas.html">Zonas</a></li>
+            <li><a href="control.html">Control</a></li>
+            <li><a href="unidadinmovilizada.html">Unidad Inmovilizada</a></li>
+            <li><a href="#">Sistema de llaves</a></li>
+            <li class="active"><a href="#">Información de partes en orden pendiente y seguimiento a pedido <span class="sr-only">(current)</span></a></li>
+            <li><a href="informaciontecnica.html">Información Técnica</a></li>
+            <li><a href="preciospartes-form.html">Consultra relacionada con precio de partes</a></li>
+            <li><a href="#">Otras solicitudes</a></li>
           </ul>
           www.lisa.com.mx 
         </div>
@@ -110,39 +86,27 @@
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>No. Ticket</th>
-                  <th>Estatus</th>
-                  <th>Fecha</th>
-                  <th>Clave de Agencia</th>
-                  <th>No. Parte</th>
-                  <th>Descripción</th>
-                  <th>Pedido Nissan</th>
-                  <th>Cantidad</th>
-                  <th>Fecha Referencia</th>
-                  <th>Fecha #1</th>
-                  <th>Fecha #2</th>
-                  <th>Fecha #3</th>
-                  <th>Respuesta</th>
-                  <th>Ticket Cerrado</th>
+                  <th>Compañía</th>
+                  <th>Clave</th>
+                  <th>Razón Social</th>
+                  <th>Zona</th>
+                  <th>Ciudad</th>
+                  <th>Estado</th>
+                  <th>Tipo</th>
+                  <th>Activo</th>
                 </tr>
               </thead>
               <tbody>
                 <tr ng-repeat="data in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
                   <td>{{data.Id}}</td>
-                  <td><a href="#/{{data.NoTicket}}">{{data.NoTicket}}</a></td>
-                  <td><span class="label {{data.Color}}">{{data.Status}}</span></td>
-                  <td>{{data.Fecha}}</td>
-                  <td>{{data.Agencia}}</td>
-                  <td>{{data.NoParte}}</td>
-                  <td>{{data.Descripcion}}</td>
-                  <td>{{data.RefOrdenPen}}</td>
-                  <td>{{data.Cantidad}}</td>
-                  <td>{{data.FechaReferencia}}</td>
-                  <td>{{data.Fecha1}}</td>
-                  <td>{{data.Fecha2}}</td>
-                  <td>{{data.Fecha3}}</td>
-                  <td>{{data.Control}}</td>
-                  <td>{{data.FechaMod}}</td>
+                  <td>{{data.Compania}}</td>
+                  <td>{{data.Clave}}</td>
+                  <td>{{data.Nombre}}</td>
+                  <td>{{data.Zona}}</td>
+                  <td>{{data.Ciudad}}</td>
+                  <td>{{data.Estado}}</td>
+                  <td>{{data.Tipo}}</td>
+                  <td>{{data.Activo}}</td>
                 </tr>                
               </tbody>
             </table>
