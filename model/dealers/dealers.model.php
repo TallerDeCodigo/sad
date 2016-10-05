@@ -37,7 +37,8 @@ class DealersModel
 				}else if($row['Tipo']==3){
 					$row['Tipo'] = 'Sucursal';
 				}
-	         $dealers[] = $row;
+				$row['Clave'] = str_pad($row['Clave'], 3, "0", STR_PAD_LEFT);
+	        $dealers[] = $row;
 	    }
 
 	 	return json_encode($dealers);
