@@ -847,6 +847,48 @@ tktunidadinm_llaves.controller('tktunidadinm_llavesCrtl', function ($scope, $htt
 
 
 
+// -----------------tkt unidad inmovilizada_llaves_RESP----------------------
+
+var tktunidadinm_llaves_resp = angular.module('appTktunidadinm_llaves_resp', ['ui.bootstrap']);
+
+tktunidadinm_llaves_resp.filter('startFrom', function() {
+    return function(input, start) {
+        if(input) {
+            start = +start; //parse to int
+            return input.slice(start);
+        }
+        return [];
+    }
+  });
+
+
+tktunidadinm_llaves_resp.controller('tktunidadinm_llaves_respCrtl', function ($scope, $http, $timeout) {
+    $http.get('http://localhost/~programacion2/sad/index.php/unidadinmllavesresp/').success(function(data){
+        $scope.list = data;
+        $scope.currentPage = 1; //current page
+        $scope.entryLimit = 50; //max no of items to display in a page
+        $scope.filteredItems = $scope.list.length; //Initially for no filter  
+        $scope.totalItems = $scope.list.length;
+
+    });
+   
+    $scope.setPage = function(pageNo) {
+        $scope.currentPage = pageNo;
+    };
+    $scope.filter = function() {
+        $timeout(function() { 
+            $scope.filteredItems = $scope.filtered.length;
+        }, 10);
+    };
+    $scope.sort_by = function(predicate) {
+        $scope.predicate = predicate;
+        $scope.reverse = !$scope.reverse;
+    };
+
+});
+
+
+
 // ----------------- ZONAS ----------------------
 
 var zonas = angular.module('appZonas', ['ui.bootstrap']);

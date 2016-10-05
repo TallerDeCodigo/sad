@@ -92,6 +92,9 @@
 	//Ruta de unidadinm_resp
 	require('./routes/sad_tktunidadinm_resp/routes.tktunidadinm_resp.php');
 
+	//Ruta de unidadinm_resp_llaves
+	require('./routes/sad_tktunidadinm_llaves_resp/routes.tktunidadinm_llaves_resp.php');
+
 
 
 	// API USERS

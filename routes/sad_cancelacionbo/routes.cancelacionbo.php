@@ -11,9 +11,9 @@
 		return $result;
 	});
 
-	// $app->get('/cancelacionbo/:id', function ($id) use ($app, $sql)  {		
-	// 	echo $id;
-	// });
+	$app->get('/cancelacionbo/:id', function ($id) use ($app, $sql)  {		
+		echo $id;
+	});
 
 	/**
 	 * INSERT INTO DATABASE 

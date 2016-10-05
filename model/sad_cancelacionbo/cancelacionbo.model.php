@@ -80,5 +80,11 @@
 			return json_encode($cancelacionbo);
 		}//END GET
 
+		function ins($IdUsuario, $sql){
+			$consulta="INSERT INTO sad_cancelacionbo(Fecha, NoTicket, NoParte, NoPedido, Cantidad, Causa, Comentarios, RazonSocial, FechaElaboracion, sadusuarios_Id, sadagencias_Id, Status, FechaMod) VALUES('" . $fReporte . "', '" . $datVO->NoTicket . "', '" . $datVO->NoParte . "', '" . $datVO->NoPedido . "', " . $datVO->Cantidad . ", '" . $datVO->Causa . "', '" . $datVO->Comentarios . "', '" . $datVO->RazonSocial . "', '" . date('Y-m-d') . "', " . $datVO->sadusuarios_Id . ", " . $datVO->sadagencias_Id . ", " . $datVO->Status . ", '" . date('Y-m-d H:i:s') . "');";
+			$sql->query($consulta);
+			return "ok";
+		}//end insert function
+
 	}
 ?>
