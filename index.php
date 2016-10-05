@@ -86,6 +86,11 @@
 	//Ruta de usuarios
 	//require('./routes/sad_usuarios/routes.usuarios.php');
 
+	//Ruta de zonas
+	require('./routes/sad_zonas/routes.zonas.php');
+
+	//Ruta de unidadinm_resp
+	require('./routes/sad_tktunidadinm_resp/routes.tktunidadinm_resp.php');
 
 
 

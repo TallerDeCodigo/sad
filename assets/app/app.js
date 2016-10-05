@@ -847,7 +847,87 @@ tktunidadinm_llaves.controller('tktunidadinm_llavesCrtl', function ($scope, $htt
 
 
 
+// ----------------- ZONAS ----------------------
 
+var zonas = angular.module('appZonas', ['ui.bootstrap']);
+
+zonas.filter('startFrom', function() {
+    return function(input, start) {
+        if(input) {
+            start = +start; //parse to int
+            return input.slice(start);
+        }
+        return [];
+    }
+  });
+
+
+zonas.controller('zonasCrtl', function ($scope, $http, $timeout) {
+    $http.get('http://localhost/~programacion2/sad/index.php/zonas/').success(function(data){
+        $scope.list = data;
+        $scope.currentPage = 1; //current page
+        $scope.entryLimit = 50; //max no of items to display in a page
+        $scope.filteredItems = $scope.list.length; //Initially for no filter  
+        $scope.totalItems = $scope.list.length;
+
+    });
+   
+    $scope.setPage = function(pageNo) {
+        $scope.currentPage = pageNo;
+    };
+    $scope.filter = function() {
+        $timeout(function() { 
+            $scope.filteredItems = $scope.filtered.length;
+        }, 10);
+    };
+    $scope.sort_by = function(predicate) {
+        $scope.predicate = predicate;
+        $scope.reverse = !$scope.reverse;
+    };
+
+});
+
+
+
+// ----------------- unidad inmovilizada resp ----------------------
+
+var unidadinm_resp = angular.module('appUnidadinm_resp', ['ui.bootstrap']);
+
+unidadinm_resp.filter('startFrom', function() {
+    return function(input, start) {
+        if(input) {
+            start = +start; //parse to int
+            return input.slice(start);
+        }
+        return [];
+    }
+  });
+
+
+unidadinm_resp.controller('unidadinm_respCrtl', function ($scope, $http, $timeout) {
+    $http.get('http://localhost/~programacion2/sad/index.php/unidadinm_resp/').success(function(data){
+        $scope.list = data;
+        $scope.currentPage = 1; //current page
+        $scope.entryLimit = 50; //max no of items to display in a page
+        $scope.filteredItems = $scope.list.length; //Initially for no filter  
+        $scope.totalItems = $scope.list.length;
+
+    });
+   
+    $scope.setPage = function(pageNo) {
+        $scope.currentPage = pageNo;
+    };
+    $scope.filter = function() {
+        $timeout(function() { 
+            $scope.filteredItems = $scope.filtered.length;
+        }, 10);
+    };
+    $scope.sort_by = function(predicate) {
+        $scope.predicate = predicate;
+        $scope.reverse = !$scope.reverse;
+    };
+
+});
 
 
 
