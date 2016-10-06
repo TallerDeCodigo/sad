@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" ng-app="appUnidadInm">
+<html lang="es" ng-app="appTktunidadinm">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -68,12 +68,16 @@
             <li><a href="dealers.html">Agencias</a></li>
             <li><a href="zonas.html">Zonas</a></li>
             <li><a href="control.html">Control</a></li>
+            <li><a href="estadisticas.html">Estadísticas</a></li>
+            <li><a href="cambiodecontrasena.php">Cambio de contraseña</a></li>
             <li><a href="unidadinmovilizada.html">Unidad Inmovilizada</a></li>
-            <li><a href="#">Sistema de llaves</a></li>
-            <li class="active"><a href="#">Información de partes en orden pendiente y seguimiento a pedido <span class="sr-only">(current)</span></a></li>
+            <li><a href="sistemadellaves.html">Sistema de llaves</a></li>
+            <li class="active"><a href="index.html">Información de partes en orden pendiente y seguimiento a pedido <span class="sr-only">(current)</span></a></li>
             <li><a href="informaciontecnica.html">Información Técnica</a></li>
             <li><a href="preciospartes-form.html">Consultra relacionada con precio de partes</a></li>
             <li><a href="#">Otras solicitudes</a></li>
+            <li><a href="#">Catálogo de automóviles</a></li>
+            <li><a href="#">Manual de usuario</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -89,7 +93,7 @@
               <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
             </a>
           </div>  
-          <div class="table-responsive" ng-controller="unidadInmCtrl">
+          <div class="table-responsive" ng-controller="tktunidadinmCrtl">
             <table class="table table-bordered" ng-show="filteredItems > 0" >
               <thead>
                 <tr>
@@ -178,7 +182,7 @@
                   <td>{{data.Garantia}}</td>
                   <td>{{data.Reparacion}}</td>
                   <td>{{data.Accidente}}</td>
-                   <td>{{data.Accidente}}</td>
+                  <td>{{data.Accidente}}</td>
                   </tr> 
               </tbody>
             </table>

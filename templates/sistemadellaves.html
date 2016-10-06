@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" ng-app="appBitacora">
+<html lang="en" ng-app="mybo">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,20 +7,13 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
     <title>Dashboard - Nissan SAD</title>
+    <link rel="icon" href="../../favicon.ico">
     <!-- Bootstrap core CSS -->
     <link href="../assets/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="dashboard.css" rel="stylesheet">
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
@@ -79,7 +72,7 @@
            
            
           </div>
-          <h2 class="sub-header">BITACORAS</h2>
+          <h2 class="sub-header">SISTEMA DE LLAVES</h2>
           
           <div class="row placeholders">
             <a href="backorder-form.html" class="btn btn-default" aria-label="Left Align">
@@ -92,24 +85,93 @@
               <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
             </a>
           </div>  
-          <div class="table-responsive" ng-controller="bitacoraCrtl">
-            <table class="table table-hover" ng-show="filteredItems > 0">
+          <div class="table-responsive" ng-controller="backorderCrtl">
+            <table class="table table-hover" ng-show="filteredItems > 0" >
               <thead>
                 <tr>
                   <th>#</th>
-                  <th style="display:none">Id</th>
-                  <th>Comentarios</th>
+                  <th>Aprio</th>
+                  <th>Cierre de modelo</th>
+                  <th>No. Ticket</th>
+                  <th>No. Parte</th>
                   <th>Fecha</th>
-                  <th>No Ticket</th>
+                  <th>Status</th>
+                  <th>Escalonamiento</th>
+                  <th>- No. Parte</th>
+                  <th>- Descripción</th>
+                  <th>- Cantidad</th>
+                  <th>- Tipo Llave</th>
+                  <th></th>
+                  <th>Escalonamiento</th>
+                  <th>Fecha Escalonamiento</th>
+                  <th>Fecha Propuesta</th>
+                  <th>Fecha PO</th>
+                  <th>Numero PO</th>
+                  <th>Clave Agencia</th>
+                  <th>No. Corte</th>
+                  <th>Proveedor</th>
+                  <th>Descripción</th>
+                  <th>Referencia Orden</th>
+                  <th>Referencia</th>
+                  <th>Factura</th>
+                  <th>Cantidad</th>
+                  <th>Fecha Referencia</th>
+                  <th>Fecha #1 </th>
+                  <th>Fecha #2 </th>
+                  <th>Fecha #3 </th>
+                  <th>Orden de reparación de servicio</th>
+                  <th>Asesor de servicio</th>
+                  <th>Tipo Venta</th>
+                  <th>No. de Serie</th>
+                  <th>Modelo</th>
+                  <th>Año</th>
+                  <th>Placas</th>
+                  <th>Kms</th>
+                  <th>Tipo Cliente</th>
+                  <th>Nombre del Cliente</th>
+                  <th>Lada</th>
+                  <th>Teléfono</th>
+                  <th>Celular</th>
+                  <th>Email</th>
+                  <th>No. Parte</th>
+                  <th>Descripción</th>
+                  <th>Cantidad</th>
+                  <th>Tipo</th>
+                  <th>Garantía</th>
+                  <th>Reparación</th>
+                  <th>Accidente</th>
                 </tr>
               </thead>
               <tbody>
                 <tr ng-repeat="data in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
-                  <td>{{data.No}}</td>
-                  <td style="display:none">{{data.Id}}</td>
-                  <td>{{data.Comentarios}}</td>
+                  <td>{{data.Id}}</td>
+                  <td>{{data.Aprio}}</td>
+                  <td>{{data.Cierre de Modelo}}</td>
+                  <td>{{data.No. Ticket}}</td>
+                  <td>{{data.No. Parte}}</td>
                   <td>{{data.Fecha}}</td>
-                  <td>{{data.NoTicket}}</td>       
+                  <td>{{data.Status}}</td>
+                  <td>{{data.Escalonamiento}}</td>
+                  <td>{{data.- No. Parte}}</td>
+                  <td>{{data.}}</td>
+                  <td>{{data.}}</td>
+                  <td>{{data.}}</td>
+                  <td>{{data.}}</td>
+                  <td>{{data.}}</td>
+                  <td>{{data.}}</td>
+                  <td>{{data.}}</td>
+                  <td>{{data.}}</td>
+                  <td>{{data.}}</td>
+                  <td>{{data.}}</td>
+                  <td>{{data.}}</td>
+                  <td>{{data.}}</td>
+                  <td>{{data.}}</td>
+                  <td>{{data.}}</td>
+                  <td>{{data.}}</td>
+                  <td>{{data.}}</td>
+                  <td>{{data.}}</td>
+                  <td>{{data.}}</td>
+                  <td>{{data.}}</td>
                 </tr>                
               </tbody>
             </table>

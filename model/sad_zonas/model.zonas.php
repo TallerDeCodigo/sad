@@ -10,6 +10,11 @@
 			$query = $sql->query($consulta);
 
 			foreach($query as $row){
+				if($row['Activo']==1){
+					$row['Activo']="Si";
+				}else if($row['Activo']==0){
+					$row['Activo']='No';
+				}
 				$zonas[] = $row;
 			}
 			return json_encode($zonas);

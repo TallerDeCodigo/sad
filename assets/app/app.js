@@ -424,8 +424,6 @@ graficas.controller('graficasCrtl', function ($scope, $http, $timeout) {
 });
 
 
-
-
 // -----------------Infotech----------------------
 
 var infotech = angular.module('appInfotech', ['ui.bootstrap']);
@@ -1012,13 +1010,6 @@ unidadinm_resp.controller('unidadinm_respCrtl', function ($scope, $http, $timeou
     };
 
 });
-
-
-
-
-
-
-
 
 
 // ----------------- VOR ----------------------

@@ -6,16 +6,16 @@
 	$app->get('/zonas/', function () use ($app, $sql) {	
 		//Model
 		$model  = new ZonasModel();
-		$result = $model->get($activo, $sql);
+		$result = $model->get($activo=1, $sql);
 		return $result;
 	});
 
-	$app->get('/zonas/:id', function ($id) use ($app, $sql)  {		
-		echo $id;
-		 // $model  = new DealersModel();
-		 // $result = $model->get($id, $sql);
-		 // return $result;
-	});
+	// $app->get('/zonas/:id', function ($id) use ($app, $sql)  {		
+	// 	echo $id;
+	// 	 // $model  = new DealersModel();
+	// 	 // $result = $model->get($id, $sql);
+	// 	 // return $result;
+	// });
 
 		/**
 		 * INSERT INTO DATABASE 

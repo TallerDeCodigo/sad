@@ -11,7 +11,7 @@
 		
 		//Model
 		$model  = new Tktinfotech();
-		$result = $model->get( $IdDealer, $Perfil, $IdUsuario, $FechaIni = '', $FechaFin = '', $NoTicket = '', $Escalonado = 0, $sql );
+		$result = $model->get( $IdDealer, $Perfil, $IdUsuario = 150, $FechaIni = '', $FechaFin = '', $NoTicket = '', $Escalonado = 0, $sql );
 		return $result;
 
 	});
@@ -22,7 +22,6 @@
 		 // $model  = new DealersModel();
 		 // $result = $model->get($id, $sql);
 		 // return $result;
-
 	});
 	
 
